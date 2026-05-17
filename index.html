@@ -430,6 +430,215 @@
 }
 
 /* Latest Updates */
+/* ========== LATEST UPDATES SECTION ========== */
+
+.latest-section {
+  margin-bottom: 50px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f0f2ff;
+}
+
+.section-header h2 i {
+  color: #a78bfa;
+}
+
+.view-all {
+  color: #a78bfa;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.view-all:hover {
+  color: #c084fc;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* Detailed Card Style (Same as clients page) */
+#latest-grid .detailed-card {
+  background: rgba(18, 22, 40, 0.7);
+  border-radius: 24px;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+#latest-grid .detailed-card:hover {
+  transform: translateY(-5px);
+  border-color: #818cf8;
+  background: rgba(25, 30, 55, 0.85);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Category Badge */
+.category-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.category-badge i {
+  margin-right: 5px;
+  font-size: 0.6rem;
+}
+
+/* Card Title */
+#latest-grid .card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #a78bfa;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+/* Card Description */
+#latest-grid .card-description {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* Info Boxes (SIZE, REQUIRES) */
+#latest-grid .info-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+#latest-grid .info-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+}
+
+#latest-grid .info-label {
+  color: #64748b;
+  font-weight: 500;
+}
+
+#latest-grid .info-val {
+  color: #c4b5fd;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+/* Feature Tags */
+#latest-grid .feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+#latest-grid .feature-tags .tag {
+  background: rgba(79, 70, 229, 0.2);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  color: #c4b5fd;
+}
+
+/* Download Button */
+#latest-grid .download-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  padding: 8px 20px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin-top: 5px;
+}
+
+#latest-grid .download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+}
+
+/* Loading State */
+.loading-updates {
+  text-align: center;
+  padding: 40px;
+  color: #a09eb0;
+  grid-column: 1/-1;
+}
+
+.loading-updates i {
+  font-size: 2rem;
+  color: #a78bfa;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+/* No Data State */
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #a09eb0;
+  grid-column: 1/-1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .section-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  #latest-grid .detailed-card {
+    padding: 16px;
+  }
+  
+  #latest-grid .card-title {
+    font-size: 1rem;
+  }
+  
+  #latest-grid .info-boxes {
+    gap: 8px;
+  }
+  
+  #latest-grid .info-box {
+    padding: 4px 10px;
+  }
+}
+    /* -------- */
 .latest-section, .faq-section, .status-stats-section {
   margin-bottom: 50px;
 }
@@ -660,28 +869,71 @@
 </style>
 
 <script>
-// Latest Updates Data
-const latestData = [
-  { title: "Horizon Client", version: "v4.2.0", tag: "Release", creator: "HorizonTeam", desc: "Ultra FPS boost, esp, zoom" },
-  { title: "Lumina Client", version: "v2.5.1", tag: "Beta", creator: "Lumina Labs", desc: "Next-gen shader support" },
-  { title: "Stellar Shader", version: "v3.2", tag: "Release", creator: "ShadeX", desc: "Realistic water & clouds" },
-  { title: "Faithful 64x", version: "v2.9", tag: "Release", creator: "FaithfulTeam", desc: "HD classic textures" }
-];
-
-// Render Latest Updates
-function renderLatest() {
+// Latest Updates - Auto fetch from ALL categories
+async function renderLatest() {
   const grid = document.getElementById('latest-grid');
   if (!grid) return;
-  grid.innerHTML = latestData.map(item => `
-    <a href="//${item.title.toLowerCase().replace(/ /g, '-')}" class="card">
-      <div class="tags">
-        <span class="tag">${item.tag}</span>
-        <span class="tag">${item.version}</span>
-      </div>
-      <h3>${item.title}</h3>
-      <p>By: ${item.creator} | ${item.desc}</p>
-    </a>
-  `).join('');
+  
+  grid.innerHTML = '<div style="text-align:center;padding:40px;"><i class="fas fa-spinner fa-pulse"></i> Loading updates...</div>';
+  
+  // Sab categories ki list
+  const categories = [
+    { name: 'clients', path: '/clients/index.html' },
+    { name: 'mods', path: '/mods/index.html' },
+    { name: 'shaders', path: '/shaders/index.html' },
+    { name: 'texture-packs', path: '/texture-packs/index.html' },
+    { name: 'mcpe-apk', path: '/mcpe-apk/index.html' }
+  ];
+  
+  let allCards = [];
+  
+  for (const cat of categories) {
+    try {
+      const res = await fetch(cat.path);
+      const html = await res.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const cards = doc.querySelectorAll('.detailed-card');
+      
+      cards.forEach(card => {
+        // Category tag add karo (optional)
+        const categoryTag = document.createElement('div');
+        categoryTag.className = 'category-badge';
+        categoryTag.innerHTML = `<i class="fas ${getCategoryIcon(cat.name)}"></i> ${cat.name.toUpperCase()}`;
+        card.insertBefore(categoryTag, card.firstChild);
+        allCards.push(card.outerHTML);
+      });
+    } catch(e) {
+      console.log(`${cat.name} not found`);
+    }
+  }
+  
+  if (allCards.length === 0) {
+    grid.innerHTML = '<div style="text-align:center;padding:40px;">No items yet. Add some resources!</div>';
+    return;
+  }
+  
+  // Sort by date? (agar data-date attribute hai to)
+  allCards.sort((a, b) => {
+    let dateA = a.match(/data-date=["']([^"']+)["']/)?.[1] || '';
+    let dateB = b.match(/data-date=["']([^"']+)["']/)?.[1] || '';
+    return dateB.localeCompare(dateA);
+  });
+  
+  // Sirf top 6 dikhao
+  grid.innerHTML = allCards.slice(0, 6).join('');
+}
+
+// Category ke hisaab se icon
+function getCategoryIcon(category) {
+  const icons = {
+    'clients': 'fa-gamepad',
+    'mods': 'fa-cube',
+    'shaders': 'fa-sun',
+    'texture-packs': 'fa-image',
+    'mcpe-apk': 'fa-android'
+  };
+  return icons[category] || 'fa-folder';
 }
 
 // FAQ Accordion
