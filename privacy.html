@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | AyzMods</title>
+    
+    <meta name="description" content="Privacy Policy for AyzMods. Learn how we collect, use, and protect your data while using our MCPE mods hub.">
+    <meta name="robots" content="noindex, follow"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b090f;
+            --surface-color: #1a1625;
+            --primary-color: #8b5cf6;
+            --secondary-color: #3b82f6;
+            --primary-glow: rgba(139, 92, 246, 0.4);
+            --text-main: #ffffff;
+            --text-muted: #a09eb0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
+
+        /* Header & Sidebar Styles */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(11, 9, 15, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0; z-index: 100; }
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 10px var(--primary-glow); }
+        .brand-text h1 { font-size: 20px; color: #fff; } .brand-text h1 span { color: var(--primary-color); }
+        .brand-text p { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .menu-btn { background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; }
+        
+        #sidebar { position: fixed; top: 0; right: -300px; width: 280px; height: 100vh; background: #120e18; border-left: 1px solid rgba(255,255,255,0.05); transition: right 0.4s ease; z-index: 1000; padding: 20px; }
+        #sidebar.active { right: 0; }
+        .sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .close-btn { background: #221c2e; border: none; color: #fff; width: 35px; height: 35px; border-radius: 10px; cursor: pointer; }
+        .sidebar-menu { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+        .sidebar-menu li a { display: flex; align-items: center; gap: 15px; padding: 12px 15px; color: var(--text-muted); text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 14px; transition: 0.3s; }
+        .sidebar-menu li a:hover { background: #1e1829; color: #fff; }
+        #overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.6); z-index: 999; display: none; backdrop-filter: blur(3px); }
+        #overlay.active { display: block; }
+
+        /* Privacy Policy Container */
+        main { padding: 40px 20px; max-width: 850px; margin: 0 auto; margin-bottom: 60px; }
+        
+        /* Hero Header */
+        .policy-hero {
+            background: linear-gradient(145deg, #161224 0%, #1a1625 100%);
+            border-radius: 24px; padding: 35px 25px; text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin-bottom: 35px;
+            position: relative; overflow: hidden;
+        }
+        .policy-hero h2 { font-size: 30px; font-weight: 800; margin-bottom: 5px; }
+        .policy-hero h2 span { color: var(--primary-color); }
+        .policy-hero p { color: var(--text-muted); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Legal Content Section */
+        .legal-box {
+            background: var(--surface-color); border-radius: 20px; padding: 30px;
+            border: 1px solid rgba(255,255,255,0.05); margin-bottom: 25px;
+        }
+        .legal-box h3 { display: flex; align-items: center; gap: 12px; font-size: 18px; color: #fff; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .legal-box h3 i { color: var(--secondary-color); font-size: 16px; }
+        .legal-box p { color: var(--text-muted); font-size: 14px; line-height: 1.8; margin-bottom: 15px; }
+        .legal-box p b { color: #fff; }
+        
+        /* List formatting */
+        .legal-list { list-style: none; margin-left: 5px; margin-bottom: 15px; }
+        .legal-list li { color: var(--text-muted); font-size: 14px; line-height: 1.8; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 10px; }
+        .legal-list li i { color: var(--primary-color); margin-top: 5px; font-size: 12px; }
+
+        /* Bottom Support Link */
+        .contact-box {
+            background: rgba(139, 92, 246, 0.05); border: 1px dashed rgba(139, 92, 246, 0.3);
+            border-radius: 16px; padding: 20px; text-align: center; margin-top: 30px;
+        }
+        .contact-box p { font-size: 14px; color: var(--text-muted); }
+        .contact-box a { color: var(--primary-color); text-decoration: none; font-weight: 700; transition: 0.2s; }
+        .contact-box a:hover { color: var(--secondary-color); text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="brand">
+            <img src="/assets/logo.png" alt="Logo"> <div class="brand-text"><h1>Ayz<span>Mods</span></h1><p>MCPE MOD HUB</p></div>
+        </a>
+        <button id="menu-btn" class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+    </header>
+
+    <div id="overlay"></div>
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="brand-text"><h2>MENU</h2></div>
+            <button id="close-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="/clients"><i class="fa-solid fa-gamepad"></i> Clients</a></li>
+            <li><a href="/mods"><i class="fa-solid fa-cube"></i> Mods</a></li>
+            <li><a href="/shaders"><i class="fa-solid fa-sun"></i> Shaders</a></li>
+            <li><a href="/textures"><i class="fa-solid fa-image"></i> Textures</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        
+        <div class="policy-hero">
+            <h2><span>Privacy Policy</span></h2>
+            <p>Last Updated: May 2026</p>
+        </div>
+
+        <div class="legal-box">
+            <h3><i class="fa-solid fa-shield-halved"></i> 1. Introduction</h3>
+            <p>Welcome to <b>AyzMods</b>. We respect your privacy and are committed to protecting any information processed while you navigate our platform. This Privacy Policy details how data handling occurs when accessing our hosted gaming resources, clients, and custom utility bundles.</p>
+        </div>
+
+        <div class="legal-box">
+            <h3><i class="fa-solid fa-database"></i> 2. Information We Collect</h3>
+            <p>AyzMods is a free directory system designed to offer direct download paths. We do not require mandatory registration protocols or premium accounts to use our site. However, certain automated system components track general network telemetry:</p>
+            <ul class="legal-list">
+                <li><i class="fa-solid fa-caret-right"></i> <b>Log Files:</b> Standard collection of IP addresses, browser distributions, Internet Service Provider (ISP) tags, and general timestamps.</li>
+                <li><i class="fa-solid fa-caret-right"></i> <b>Cookies:</b> Temporary memory blocks initialized to save interface preferences (such as light/dark mode choices).</li>
+            </ul>
+        </div>
+
+        <div class="legal-box">
+            <h3><i class="fa-solid fa-arrow-up-right-from-square"></i> 3. Third-Party Services & Links</h3>
+            <p>Our infrastructure references safe, external content storage links (such as Mediafire, Google Drive, or official developer source codes). Once you select a download link and leave our domain, we do not manage or control the data handling procedures of external servers.</p>
+            <p>We highly recommend reviewing the individual deployment structures and privacy rules of external networks when storing custom configurations on your personal devices.</p>
+        </div>
+
+        <div class="legal-box">
+            <h3><i class="fa-solid fa-circle-check"></i> 4. File Safety & Storage Integrity</h3>
+            <p>All optimization tools, modification frameworks, and graphic layout structures displayed on AyzMods undergo standard optimization checks. We do not package stealth software or data trackers inside deployment files. Your system operations and account parameters remain completely safe and secure.</p>
+        </div>
+
+        <div class="legal-box">
+            <h3><i class="fa-solid fa-user-shield"></i> 5. Children's Privacy</h3>
+            <p>Our platform indexes safe gaming modules suitable for general users. We do not intentionally compile or maintain sensitive identification trackers belonging to younger audiences. If any data is accidentally processed, it is immediately cleared from temporary host server records.</p>
+        </div>
+
+        <div class="contact-box">
+            <p>Have questions regarding our data usage rules? Get in touch with our operations desk or drop a line in our official community channel via the <a href="/about.html">About Page Support Form</a>.</p>
+        </div>
+
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const closeBtn = document.getElementById("close-btn");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        function toggleMenu() {
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
+        }
+
+        if(menuBtn) menuBtn.addEventListener("click", toggleMenu);
+        if(closeBtn) closeBtn.addEventListener("click", toggleMenu);
+        if(overlay) overlay.addEventListener("click", toggleMenu);
+    </script>
+</body>
+</html>

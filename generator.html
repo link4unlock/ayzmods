@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AyzMods Upload Tool</title>
+    <style>
+        body { background: #121212; color: #fff; font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .form-group { margin-bottom: 15px; }
+        input, textarea, select { width: 100%; padding: 12px; background: #222; border: 1px solid #444; color: #fff; border-radius: 8px; box-sizing: border-box; }
+        button { background: #9d4edd; color: white; padding: 15px; border: none; cursor: pointer; width: 100%; font-weight: bold; border-radius: 8px; font-size: 16px; }
+        button:hover { background: #8a3ec9; }
+        textarea.output-box { height: 150px; margin-top: 10px; font-family: monospace; font-size: 12px; background: #000; }
+        h3 { margin-top: 30px; color: #9d4edd; }
+    </style>
+</head>
+<body>
+    <h2>Add New Mod/Client</h2>
+    
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" id="title" placeholder="Enter Title">
+    </div>
+    <div class="form-group">
+        <label>Category (Path)</label>
+        <select id="categoryPath">
+            <option value="clients">Clients</option>
+            <option value="mods">Mods</option>
+            <option value="shaders">Shaders</option>
+            <option value="texture-packs">Texture Packs</option>
+            <option value="mcpe-apk">MCPE APK</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>URL Slug (Folder Name)</label>
+        <input type="text" id="slug" placeholder="e.g., my-awesome-client">
+    </div>
+    <div class="form-group">
+        <label>Banner Image URL</label>
+        <input type="text" id="bannerImg" placeholder="Image link for homepage card">
+    </div>
+    <div class="form-group">
+        <label>Logo Image URL</label>
+        <input type="text" id="logoImg" placeholder="Image link for inner page">
+    </div>
+    <div class="form-group">
+        <label>Creator</label>
+        <input type="text" id="creator" placeholder="Creator Name">
+    </div>
+    <div class="form-group">
+        <label>Version</label>
+        <input type="text" id="version" placeholder="e.g., v1.0">
+    </div>
+    <div class="form-group">
+        <label>Tag (Release/Beta)</label>
+        <input type="text" id="tag" placeholder="e.g., Release">
+    </div>
+    <div class="form-group">
+        <label>Short Description (For Card)</label>
+        <input type="text" id="shortDesc" placeholder="1 line description">
+    </div>
+    <div class="form-group">
+        <label>Full Description & Features (Use HTML tags like <br> or <ul> for formatting)</label>
+        <textarea id="fullDesc" rows="4" placeholder="Full details..."></textarea>
+    </div>
+    <div class="form-group">
+        <label>Download Link</label>
+        <input type="text" id="dlink" placeholder="Direct link to download">
+    </div>
+
+    <button onclick="generateCodes()">Generate Codes</button>
+
+    <h3>1. Copy this Card Code (Paste inside index.html card-grid)</h3>
+    <textarea id="outputCard" class="output-box" readonly></textarea>
+
+    <h3>2. Copy this Full Page Code (Paste in /category/slug/index.html)</h3>
+    <textarea id="outputPage" class="output-box" readonly></textarea>
+
+    <script>
+        function generateCodes() {
+            let title = document.getElementById("title").value;
+            let catPath = document.getElementById("categoryPath").value;
+            let slug = document.getElementById("slug").value;
+            let bannerImg = document.getElementById("bannerImg").value;
+            let logoImg = document.getElementById("logoImg").value;
+            let creator = document.getElementById("creator").value;
+            let version = document.getElementById("version").value;
+            let tag = document.getElementById("tag").value;
+            let shortDesc = document.getElementById("shortDesc").value;
+            let fullDesc = document.getElementById("fullDesc").value;
+            let dlink = document.getElementById("dlink").value;
+
+            let finalUrl = `/${catPath}/${slug}`;
+
+            // Code for Homepage Card
+            let cardCode = `<a href="${finalUrl}" class="card">
+    <img src="${bannerImg}" alt="${title}" class="card-img">
+    <div class="card-info">
+        <div class="tags">
+            <span class="tag">${tag}</span>
+            <span class="tag">${version}</span>
+        </div>
+        <h3>${title}</h3>
+        <p>By: ${creator} | ${shortDesc}</p>
+    </div>
+</a>`;
+            document.getElementById("outputCard").value = cardCode;
+
+            // Code for the Inner Page (Single Post)
+            let pageCode = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title} | AyzMods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="brand">
+            <img src="YOUR_MAIN_LOGO_URL_HERE" alt="Logo">
+            <div class="brand-text"><h1>Ayz<span>Mods</span></h1></div>
+        </a>
+    </header>
+
+    <main>
+        <a href="/${catPath}" style="color: var(--primary-color); text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Back to ${catPath}</a>
+        
+        <div class="post-header">
+            <img src="${logoImg}" alt="${title} Logo" class="post-logo">
+            <h2>${title}</h2>
+            <div class="tags" style="justify-content: center; margin-top: 10px;">
+                <span class="tag">${tag}</span>
+                <span class="tag">${version}</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 12px; margin-top: 5px;">Creator: ${creator}</p>
+        </div>
+
+        <div class="post-details">
+            <h3>Description & Features</h3>
+            <div class="content-text">
+                ${fullDesc}
+            </div>
+            
+            <a href="${dlink}" target="_blank" class="download-btn">
+                <i class="fa-solid fa-download"></i> Download
+            </a>
+        </div>
+    </main>
+</body>
+</html>`;
+            document.getElementById("outputPage").value = pageCode;
+        }
+    </script>
+</body>
+</html>

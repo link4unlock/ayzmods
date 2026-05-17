@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyzMods | MCPE MOD HUB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- AyzMods Premium Preloader (No JS) -->
+<div id="preloader">
+  <div class="preloader-container">
+    
+    <!-- Main Circle with Rotating Ring -->
+    <div class="preloader-circle">
+      <div class="preloader-ring"></div>
+      
+      <!-- Logo inside circle -->
+      <div class="preloader-logo">
+        <img src="https://ayzmods.neocities.org/assets/logo.png" alt="AyzMods" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="logo-text" style="display: none;">A</div>
+      </div>
+    </div>
+    
+    <!-- Site Name -->
+    <div class="preloader-site">
+      <h1>AyzMods</h1>
+      <p>MINECRAFT PE MOD HUB</p>
+    </div>
+    
+    <!-- Status & Progress -->
+    <div class="preloader-status">
+      <div class="status-text">
+        <span class="blink-dot"></span> PREPARING UI
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-fill"></div>
+      </div>
+      <div class="progress-percent">100%</div>
+    </div>
+  </div>
+  
+  <!-- Floating Particles -->
+  <div class="preloader-particles">
+    <div class="particle-dot" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
+    <div class="particle-dot" style="left: 85%; top: 15%; animation-delay: 0.5s;"></div>
+    <div class="particle-dot" style="left: 20%; top: 70%; animation-delay: 1s;"></div>
+    <div class="particle-dot" style="left: 70%; top: 80%; animation-delay: 1.5s;"></div>
+    <div class="particle-dot" style="left: 45%; top: 90%; animation-delay: 2s;"></div>
+    <div class="particle-dot" style="left: 60%; top: 30%; animation-delay: 0.8s;"></div>
+    <div class="particle-dot" style="left: 30%; top: 40%; animation-delay: 1.2s;"></div>
+    <div class="particle-dot" style="left: 80%; top: 55%; animation-delay: 1.8s;"></div>
+    <div class="particle-dot" style="left: 15%; top: 50%; animation-delay: 2.5s;"></div>
+    <div class="particle-dot" style="left: 50%; top: 10%; animation-delay: 0.3s;"></div>
+  </div>
+</div>
+
+    <header>
+        <a href="/" class="brand">
+            <img src="https://ayzmods.neocities.org/assets/logo.png" alt="Logo">
+            <div class="brand-text">
+                <h1>Ayz<span>Mods</span></h1>
+                <p>MCPE MOD HUB</p>
+            </div>
+        </a>
+        <button id="menu-btn" class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+    </header>
+
+    <div id="overlay"></div>
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="brand-text"><h2>MENU</h2></div>
+            <button id="close-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="active"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#statusStats"><i class="fa-solid fa-chart-line"></i> Statistics</a></li>
+            <li><a href="#faq"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+            <li><a href="/settings"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            <li><a href="/about"><i class="fa-solid fa-circle-info"></i> About</a></li>
+            <li><a href="/privacy"><i class="fa-solid fa-shield-halved"></i> Privacy</a></li>
+            <li><a href="/terms"><i class="fa-solid fa-file-contract"></i> Terms</a></li>
+            <li><a href="/dmca"><i class="fa-solid fa-gavel"></i> DMCA</a></li>
+            <li><a href="/contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            <li><a href="/resources"><i class="fa-solid fa-puzzle-piece"></i> Mods & Resources</a></li>
+        </ul>
+        <div class="user-widget">
+            <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+            <div class="user-info">
+                <h4>Guest</h4>
+                <p>Free Tier</p>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <!-- Hero Section -->
+<section class="hero-section">
+<div class="orb-1"></div>
+<div class="orb-2"></div>
+<div class="orb-3"></div>
+<div class="light-beam"></div>
+<div class="digital-rain"></div>
+  <div class="hero-badge">
+    <span class="live-dot"></span> LIVE · MCPE Mod Hub
+  </div>
+  <h1 class="hero-title">AyZ<span>Mods</span></h1>
+  <p class="hero-subtitle">MCPE MOD HUB</p>
+  <p class="hero-desc">The ultimate destination for Minecraft PE mods, clients, shaders, texture packs & APKs</p>
+  <div class="hero-buttons">
+    <a href="/clients" class="hero-btn primary"><i class="fas fa-compass"></i> Discover Clients</a>
+    <a href="/mods" class="hero-btn secondary"><i class="fas fa-bolt"></i> Trending Mods</a>
+  </div>
+</section>
+
+<!-- Latest Updates Section -->
+<section class="latest-section">
+  <div class="section-header">
+    <h2><i class="fas fa-clock"></i> Latest Updates</h2>
+    <a href="/" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+  </div>
+  <div class="card-grid" id="latest-grid"></div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section"id="faq">
+  <div class="section-header">
+    <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-question">How do I download mods from AyzMods?</div>
+      <div class="faq-answer">Simply browse any category (Clients, Mods, Shaders, etc.), click on the resource card, and press the "Download" button.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Are these mods compatible with MCPE/Bedrock?</div>
+      <div class="faq-answer">Yes! All mods, clients, shaders, and texture packs are specifically designed for Minecraft PE Bedrock Edition.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Is it safe to download from AyzMods?</div>
+      <div class="faq-answer">Absolutely. Every file is scanned for malware and verified by our team.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">How often are mods updated?</div>
+      <div class="faq-answer">We update resources daily. New mods, clients, and APKs are added within 24 hours.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Can I request a mod or client?</div>
+      <div class="faq-answer">Yes! Use the Contact page to submit requests. Our team reviews all requests.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Are there any premium/paid mods?</div>
+      <div class="faq-answer">All resources on AyzMods are completely free. No hidden payments.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Site Status + Platform Stats -->
+<section class="status-stats-section"id="statusStats">
+  <div class="status-card">
+    <div class="status-header">
+      <span class="live-indicator"></span> LIVE
+      <span class="status-badge">Operational</span>
+    </div>
+    <div class="status-message">
+      <i class="fas fa-check-circle"></i> All systems operational. Servers running smoothly.
+    </div>
+    <div class="status-uptime">
+      <span>Uptime: 99.98%</span>
+      <span>Last 30 days</span>
+    </div>
+  </div>
+  
+  <div class="stats-card">
+    <h3><i class="fas fa-chart-simple"></i> Platform Stats</h3>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-value" id="viewsCount">384,442</div>
+        <div class="stat-label">Views</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="hitsCount">813,463</div>
+        <div class="stat-label">Hits</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">2026</div>
+        <div class="stat-label">Created</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="productsCount">8</div>
+        <div class="stat-label">Products</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="releasesCount">25</div>
+        <div class="stat-label">Releases</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">May 15</div>
+        <div class="stat-label">Updated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #0f1222, #141a2c);
+  border-radius: 28px;
+  margin-bottom: 45px;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34, 197, 94, 0.15);
+  padding: 6px 16px;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  color: #4ade80;
+  margin-bottom: 20px;
+}
+
+.live-dot, .live-indicator {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+}
+
+.hero-title span {
+  background: linear-gradient(120deg, #a78bfa, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #a5b4fc;
+  letter-spacing: 4px;
+  margin-top: 6px;
+}
+
+.hero-desc {
+  max-width: 550px;
+  margin: 16px auto 0;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.hero-btn.primary {
+  background: #4f46e5;
+  color: white;
+}
+
+.hero-btn.primary:hover {
+  background: #6366f1;
+  transform: translateY(-2px);
+}
+
+.hero-btn.secondary {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(139, 148, 244, 0.4);
+  color: #e0e7ff;
+}
+
+.hero-btn.secondary:hover {
+  background: rgba(139, 148, 244, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Premium Hero Background Animations - Next Gen */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Animated Orb 1 - Floating Purple */
+.hero-section .orb-1 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4), transparent 70%);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+  animation: floatOrb1 12s ease-in-out infinite;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animated Orb 2 - Floating Pink */
+.hero-section .orb-2 {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.35), transparent 70%);
+  border-radius: 50%;
+  bottom: -120px;
+  right: -80px;
+  animation: floatOrb2 15s ease-in-out infinite;
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animated Orb 3 - Center Cyan */
+.hero-section .orb-3 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.3), transparent 70%);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulseOrb 6s ease-in-out infinite;
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Moving Light Beam */
+.hero-section .light-beam {
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transform: rotate(25deg);
+  top: -50%;
+  left: -100%;
+  animation: moveBeam 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Digital Rain Effect */
+.hero-section .digital-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(0deg, 
+    rgba(139, 92, 246, 0.03) 0px, 
+    rgba(139, 92, 246, 0.03) 2px,
+    transparent 2px,
+    transparent 8px);
+  pointer-events: none;
+  animation: rainMove 3s linear infinite;
+  z-index: 0;
+}
+
+/* Animations */
+@keyframes floatOrb1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, -60px) scale(1.15); }
+}
+
+@keyframes pulseOrb {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.3); }
+}
+
+@keyframes moveBeam {
+  0% { left: -100%; opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes rainMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 20px; }
+}
+
+/* Hover Glow Effect on Cards inside hero area */
+.hero-section:hover .orb-1 {
+  animation-duration: 8s;
+}
+
+.hero-section:hover .orb-2 {
+  animation-duration: 10s;
+}
+
+/* Latest Updates */
+.latest-section, .faq-section, .status-stats-section {
+  margin-bottom: 50px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-header h2 i {
+  color: #a78bfa;
+}
+
+.view-all {
+  color: #a78bfa;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.view-all:hover {
+  color: #c084fc;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: rgba(18, 22, 40, 0.7);
+  border-radius: 24px;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 20px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #818cf8;
+  background: rgba(25, 30, 55, 0.85);
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: rgba(79, 70, 229, 0.2);
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  color: #c4b5fd;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #f0f2ff;
+}
+
+.card p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* FAQ Section */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 16px;
+}
+
+.faq-item {
+  background: rgba(18, 22, 40, 0.5);
+  border-radius: 20px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 16px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15, 18, 34, 0.6);
+}
+
+.faq-question::after {
+  content: "▼";
+  font-size: 0.7rem;
+  color: #64748b;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.faq-item.active .faq-answer {
+  padding: 0 20px 16px 20px;
+  max-height: 150px;
+}
+
+/* Site Status + Stats */
+.status-stats-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.status-card {
+  background: rgba(18, 22, 40, 0.6);
+  border-radius: 24px;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  padding: 22px;
+}
+
+.status-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: #22c55e;
+  margin-bottom: 12px;
+}
+
+.status-badge {
+  background: rgba(34, 197, 94, 0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  margin-left: auto;
+}
+
+.status-message {
+  background: rgba(34, 197, 94, 0.08);
+  padding: 10px 14px;
+  border-radius: 14px;
+  margin: 12px 0;
+  font-size: 0.85rem;
+  color: #4ade80;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-uptime {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.stats-card {
+  background: rgba(18, 22, 40, 0.6);
+  border-radius: 24px;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 22px;
+}
+
+.stats-card h3 {
+  font-size: 1rem;
+  margin-bottom: 18px;
+  color: #a5b4fc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(120deg, #ffffff, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.2rem; }
+  .hero-subtitle { letter-spacing: 2px; }
+  .status-stats-section { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+// Latest Updates Data
+const latestData = [
+  { title: "Horizon Client", version: "v4.2.0", tag: "Release", creator: "HorizonTeam", desc: "Ultra FPS boost, esp, zoom" },
+  { title: "Lumina Client", version: "v2.5.1", tag: "Beta", creator: "Lumina Labs", desc: "Next-gen shader support" },
+  { title: "Stellar Shader", version: "v3.2", tag: "Release", creator: "ShadeX", desc: "Realistic water & clouds" },
+  { title: "Faithful 64x", version: "v2.9", tag: "Release", creator: "FaithfulTeam", desc: "HD classic textures" }
+];
+
+// Render Latest Updates
+function renderLatest() {
+  const grid = document.getElementById('latest-grid');
+  if (!grid) return;
+  grid.innerHTML = latestData.map(item => `
+    <a href="//${item.title.toLowerCase().replace(/ /g, '-')}" class="card">
+      <div class="tags">
+        <span class="tag">${item.tag}</span>
+        <span class="tag">${item.version}</span>
+      </div>
+      <h3>${item.title}</h3>
+      <p>By: ${item.creator} | ${item.desc}</p>
+    </a>
+  `).join('');
+}
+
+// FAQ Accordion
+function initFaq() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
+  });
+}
+
+// Counter Animation
+function animateCounter(element, target) {
+  let current = 0;
+  const increment = target / 40;
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      element.textContent = target.toLocaleString();
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(current).toLocaleString();
+    }
+  }, 25);
+}
+
+// Run when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  renderLatest();
+  initFaq();
+  
+  // Animate stats
+  const viewsEl = document.getElementById('viewsCount');
+  const hitsEl = document.getElementById('hitsCount');
+  const productsEl = document.getElementById('productsCount');
+  const releasesEl = document.getElementById('releasesCount');
+  
+  if (viewsEl) { let val = parseInt(viewsEl.textContent.replace(/,/g, '')); viewsEl.textContent = '0'; animateCounter(viewsEl, val); }
+  if (hitsEl) { let val = parseInt(hitsEl.textContent.replace(/,/g, '')); hitsEl.textContent = '0'; animateCounter(hitsEl, val); }
+  if (productsEl) { let val = parseInt(productsEl.textContent); productsEl.textContent = '0'; animateCounter(productsEl, val); }
+  if (releasesEl) { let val = parseInt(releasesEl.textContent); releasesEl.textContent = '0'; animateCounter(releasesEl, val); }
+});
+</script>
+    </main>
+
+        <div id="category-popup">
+        <a href="/clients" class="cat-btn"><i class="fa-solid fa-gamepad"></i> Clients</a>
+        <a href="/mods" class="cat-btn"><i class="fa-solid fa-cube"></i> Mods</a>
+        <a href="/shaders" class="cat-btn"><i class="fa-solid fa-sun"></i> Shaders</a>
+        <a href="/texture-packs" class="cat-btn"><i class="fa-solid fa-image"></i> Textures</a>
+        <a href="/mcpe-apk" class="cat-btn" style="grid-column: span 2;"><i class="fa-brands fa-android"></i> MCPE APK</a>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="/" class="nav-item active"><i class="fa-solid fa-house"></i>Home</a>
+        <div id="cat-toggle" class="nav-item"><i class="fa-solid fa-layer-group"></i>Categories</div>
+        <a href="/info" class="nav-item"><i class="fa-solid fa-circle-info"></i>Info</a>
+    </nav>
+
+    <script src="/js/main.js"></script>
+<!-- Footer Section -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>Ayz<span>Mods</span></h3>
+    </div>
+    
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/dmca">DMCA</a>
+      <a href="/contact">Contact</a>
+      <a href="/faq">FAQ</a>
+      <a href="/about">About</a>
+      <a href="/mods">Mods</a>
+    </div>
+    
+    <div class="footer-copyright">
+      <p>© 2023-2026 AyzMods • Not affiliated with Mojang/Microsoft</p>
+    </div>
+  </div>
+</footer>
+<!-- Cookies Popup - No JS Required -->
+<div class="cookies-popup" id="cookiesPopup">
+  <div class="cookies-card">
+    <div class="cookies-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 13c-2.33 0-4.31-1.46-5.11-3.5h10.22c-.8 2.04-2.78 3.5-5.11 3.5z" fill="#c084fc"/>
+        <circle cx="16.5" cy="7.5" r="1.5" fill="#a78bfa"/>
+        <circle cx="7.5" cy="10.5" r="1.5" fill="#a78bfa"/>
+      </svg>
+    </div>
+    <div class="cookies-text">
+      <h3>🍪 Cookies & Privacy</h3>
+      <p>We use cookies to improve your experience on AyzMods. By continuing to use our site, you accept our use of cookies.</p>
+    </div>
+    <div class="cookies-buttons">
+      <a href="#" class="cookies-btn accept" onclick="document.cookie='cookiesAccepted=true;max-age=31536000;path=/'; document.getElementById('cookiesPopup').style.display='none'; return false;">Accept</a>
+      <a href="/privacy" class="cookies-btn learn">Learn More</a>
+    </div>
+  </div>
+</div>
+
+<!-- Check cookie and hide popup if already accepted -->
+<script>
+  (function() {
+    if (document.cookie.split('; ').find(row => row.startsWith('cookiesAccepted=true'))) {
+      document.getElementById('cookiesPopup').style.display = 'none';
+    }
+  })();
+</script>
+</body>
+</html>
