@@ -117,12 +117,32 @@
 
 <!-- Latest Updates Section -->
 <section class="latest-section">
-  <div class="section-header">
-    <h2><i class="fas fa-clock"></i> Latest Updates</h2>
-    <a href="/" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-  </div>
-  <div class="card-grid" id="latest-grid"></div>
+  <h2><i class="fas fa-clock"></i> Latest Updates</h2>
+  <div class="card-grid" id="latestGrid"></div>
 </section>
+
+<script>
+async function getAllCards() {
+  const categories = ['clients', 'mods', 'shaders', 'textures', 'mcpe-apk'];
+  let allCards = [];
+  
+  for (const cat of categories) {
+    try {
+      const res = await fetch(`/${cat}/index.html`);
+      const html = await res.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const cards = doc.querySelectorAll('.card, .detail-card');
+      cards.forEach(card => allCards.push(card.outerHTML));
+    } catch(e) {}
+  }
+  
+  // Sirf top 5 dikhao
+  document.getElementById('latestGrid').innerHTML = allCards.slice(0, 5).join('');
+}
+
+getAllCards();
+</script>
 
 <!-- FAQ Section -->
 <section class="faq-section"id="faq">
@@ -660,29 +680,6 @@
 </style>
 
 <script>
-// Latest Updates Data
-const latestData = [
-  { title: "Apollon Client 26 20", version: "v1.26.20+", tag: "Release", creator: "Zeff", desc: "Ultra FPS boost, esp, Xray" },
-  { title: "Lumina Client", version: "v2.5.1", tag: "Beta", creator: "Lumina Labs", desc: "Next-gen shader support" },
-  { title: "Stellar Shader", version: "v3.2", tag: "Release", creator: "ShadeX", desc: "Realistic water & clouds" },
-  { title: "Faithful 64x", version: "v2.9", tag: "Release", creator: "FaithfulTeam", desc: "HD classic textures" }
-];
-
-// Render Latest Updates
-function renderLatest() {
-  const grid = document.getElementById('latest-grid');
-  if (!grid) return;
-  grid.innerHTML = latestData.map(item => `
-    <a href="/clients/${item.title.toLowerCase().replace(/ /g, '-')}" class="card">
-      <div class="tags">
-        <span class="tag">${item.tag}</span>
-        <span class="tag">${item.version}</span>
-      </div>
-      <h3>${item.title}</h3>
-      <p>By: ${item.creator} | ${item.desc}</p>
-    </a>
-  `).join('');
-}
 
 // FAQ Accordion
 function initFaq() {
