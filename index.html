@@ -132,7 +132,7 @@ async function getAllCards() {
       const html = await res.text();
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, 'text/html');
-      const cards = doc.querySelectorAll('.card, .detail-card');
+      const cards = doc.querySelectorAll('.detailed-card');
       cards.forEach(card => allCards.push(card.outerHTML));
     } catch(e) {}
   }
