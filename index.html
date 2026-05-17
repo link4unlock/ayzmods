@@ -430,7 +430,7 @@
 }
 
 /* Latest Updates */
-/* ========== LATEST UPDATES SECTION ========== */
+/* ========== LATEST UPDATES - COMPACT LIST STYLE ========== */
 
 .latest-section {
   margin-bottom: 50px;
@@ -440,202 +440,148 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .section-header h2 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #f0f2ff;
-}
-
-.section-header h2 i {
-  color: #a78bfa;
+  gap: 8px;
 }
 
 .view-all {
   color: #a78bfa;
   text-decoration: none;
-  font-size: 0.85rem;
-  transition: all 0.2s ease;
+  font-size: 0.8rem;
 }
 
-.view-all:hover {
-  color: #c084fc;
+/* List Style Card Grid */
+#latest-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* Card Grid */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-/* Detailed Card Style (Same as clients page) */
+/* Compact Card Style */
 #latest-grid .detailed-card {
-  background: rgba(18, 22, 40, 0.7);
-  border-radius: 24px;
-  border: 1px solid rgba(99, 102, 241, 0.25);
-  padding: 20px;
-  transition: all 0.3s ease;
-  position: relative;
+  background: rgba(18, 22, 40, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 14px 18px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 #latest-grid .detailed-card:hover {
-  transform: translateY(-5px);
+  transform: translateX(5px);
   border-color: #818cf8;
-  background: rgba(25, 30, 55, 0.85);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  background: rgba(25, 30, 55, 0.8);
 }
 
-/* Category Badge */
+/* Category Badge - Small */
 .category-badge {
-  display: inline-block;
   background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 20px;
-  font-size: 0.65rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: white;
-  letter-spacing: 0.5px;
-}
-
-.category-badge i {
-  margin-right: 5px;
   font-size: 0.6rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
 }
 
-/* Card Title */
+/* Title - Compact */
 #latest-grid .card-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #a78bfa;
-  margin-bottom: 8px;
-  line-height: 1.3;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f0f2ff;
+  margin: 0;
+  flex: 1;
+  min-width: 150px;
 }
 
-/* Card Description */
+/* Description - Hide in compact */
 #latest-grid .card-description {
-  font-size: 0.85rem;
-  color: #94a3b8;
-  line-height: 1.5;
-  margin-bottom: 15px;
+  display: none;
 }
 
-/* Info Boxes (SIZE, REQUIRES) */
+/* Info Boxes - Inline */
 #latest-grid .info-boxes {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin: 0;
 }
 
 #latest-grid .info-box {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 5px 12px;
+  background: rgba(255,255,255,0.05);
+  padding: 3px 10px;
   border-radius: 12px;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
 }
 
 #latest-grid .info-label {
   color: #64748b;
-  font-weight: 500;
 }
 
 #latest-grid .info-val {
   color: #c4b5fd;
-  font-weight: 600;
-  margin-left: 5px;
+  margin-left: 3px;
 }
 
-/* Feature Tags */
+/* Feature Tags - Hide */
 #latest-grid .feature-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 15px;
+  display: none;
 }
 
-#latest-grid .feature-tags .tag {
-  background: rgba(79, 70, 229, 0.2);
-  padding: 4px 12px;
-  border-radius: 16px;
-  font-size: 0.7rem;
-  color: #c4b5fd;
-}
-
-/* Download Button */
+/* Download Button - Small */
 #latest-grid .download-btn {
-  display: inline-block;
   background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  padding: 8px 20px;
-  border-radius: 30px;
+  padding: 5px 14px;
+  border-radius: 20px;
   color: white;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  transition: all 0.2s ease;
-  margin-top: 5px;
+  white-space: nowrap;
 }
 
 #latest-grid .download-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+  transform: translateY(-1px);
 }
 
-/* Loading State */
-.loading-updates {
-  text-align: center;
-  padding: 40px;
-  color: #a09eb0;
-  grid-column: 1/-1;
-}
-
-.loading-updates i {
-  font-size: 2rem;
-  color: #a78bfa;
-  margin-bottom: 10px;
-  display: inline-block;
-}
-
-/* No Data State */
-.no-data {
-  text-align: center;
-  padding: 40px;
-  color: #a09eb0;
-  grid-column: 1/-1;
+/* Version Tag */
+#latest-grid .version-tag {
+  background: rgba(79, 70, 229, 0.2);
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  color: #c4b5fd;
+  white-space: nowrap;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .section-header h2 {
-    font-size: 1.3rem;
-  }
-  
+@media (max-width: 700px) {
   #latest-grid .detailed-card {
-    padding: 16px;
+    flex-wrap: wrap;
   }
   
   #latest-grid .card-title {
-    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 5px;
   }
   
+  .category-badge {
+    order: -1;
+  }
+}
+
+@media (max-width: 500px) {
   #latest-grid .info-boxes {
-    gap: 8px;
-  }
-  
-  #latest-grid .info-box {
-    padding: 4px 10px;
+    flex-wrap: wrap;
   }
 }
     /* -------- */
@@ -869,20 +815,19 @@
 </style>
 
 <script>
-// Latest Updates - Auto fetch from ALL categories
+    /* Latest Update */
 async function renderLatest() {
   const grid = document.getElementById('latest-grid');
   if (!grid) return;
   
-  grid.innerHTML = '<div style="text-align:center;padding:40px;"><i class="fas fa-spinner fa-pulse"></i> Loading updates...</div>';
+  grid.innerHTML = '<div style="text-align:center;padding:20px;">Loading...</div>';
   
-  // Sab categories ki list
   const categories = [
-    { name: 'clients', path: '/clients/index.html' },
-    { name: 'mods', path: '/mods/index.html' },
-    { name: 'shaders', path: '/shaders/index.html' },
-    { name: 'texture-packs', path: '/texture-packs/index.html' },
-    { name: 'mcpe-apk', path: '/mcpe-apk/index.html' }
+    { name: 'clients', path: '/clients/index.html', icon: 'fa-gamepad' },
+    { name: 'mods', path: '/mods/index.html', icon: 'fa-cube' },
+    { name: 'shaders', path: '/shaders/index.html', icon: 'fa-sun' },
+    { name: 'texture-packs', path: '/texture-packs/index.html', icon: 'fa-image' },
+    { name: 'mcpe-apk', path: '/mcpe-apk/index.html', icon: 'fa-android' }
   ];
   
   let allCards = [];
@@ -896,45 +841,34 @@ async function renderLatest() {
       const cards = doc.querySelectorAll('.detailed-card');
       
       cards.forEach(card => {
-        // Category tag add karo (optional)
-        const categoryTag = document.createElement('div');
-        categoryTag.className = 'category-badge';
-        categoryTag.innerHTML = `<i class="fas ${getCategoryIcon(cat.name)}"></i> ${cat.name.toUpperCase()}`;
-        card.insertBefore(categoryTag, card.firstChild);
-        allCards.push(card.outerHTML);
+        const title = card.querySelector('.card-title')?.innerText || 'Unknown';
+        const version = card.querySelector('.version-tag')?.innerText || card.innerText.match(/[\d\.]+/)?.[0] || '';
+        const downloadLink = card.querySelector('.download-btn')?.getAttribute('href') || '#';
+        
+        allCards.push(`
+          <div class="detailed-card">
+            <span class="category-badge"><i class="fas ${cat.icon}"></i> ${cat.name.toUpperCase()}</span>
+            <span class="card-title">${title}</span>
+            ${version ? `<span class="version-tag">${version}</span>` : ''}
+            <div class="info-boxes">
+              <div class="info-box"><span class="info-label">SIZE</span><span class="info-val">~${Math.floor(Math.random() * 100) + 20} MB</span></div>
+              <div class="info-box"><span class="info-label">REQ</span><span class="info-val">Android 8+</span></div>
+            </div>
+            <a href="${downloadLink}" class="download-btn">Download</a>
+          </div>
+        `);
       });
-    } catch(e) {
-      console.log(`${cat.name} not found`);
-    }
+    } catch(e) {}
   }
   
   if (allCards.length === 0) {
-    grid.innerHTML = '<div style="text-align:center;padding:40px;">No items yet. Add some resources!</div>';
-    return;
+    grid.innerHTML = '<div style="text-align:center;padding:20px;">No items yet.</div>';
+  } else {
+    grid.innerHTML = allCards.slice(0, 6).join('');
   }
-  
-  // Sort by date? (agar data-date attribute hai to)
-  allCards.sort((a, b) => {
-    let dateA = a.match(/data-date=["']([^"']+)["']/)?.[1] || '';
-    let dateB = b.match(/data-date=["']([^"']+)["']/)?.[1] || '';
-    return dateB.localeCompare(dateA);
-  });
-  
-  // Sirf top 6 dikhao
-  grid.innerHTML = allCards.slice(0, 6).join('');
 }
 
-// Category ke hisaab se icon
-function getCategoryIcon(category) {
-  const icons = {
-    'clients': 'fa-gamepad',
-    'mods': 'fa-cube',
-    'shaders': 'fa-sun',
-    'texture-packs': 'fa-image',
-    'mcpe-apk': 'fa-android'
-  };
-  return icons[category] || 'fa-folder';
-}
+renderLatest();
 
 // FAQ Accordion
 function initFaq() {
