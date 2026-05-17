@@ -662,7 +662,7 @@
 <script>
 // Latest Updates Data
 const latestData = [
-  { title: "Horizon Client", version: "v4.2.0", tag: "Release", creator: "HorizonTeam", desc: "Ultra FPS boost, esp, zoom" },
+  { title: "Apollon Client 26 20", version: "v1.26.20+", tag: "Release", creator: "Zeff", desc: "Ultra FPS boost, esp, Xray" },
   { title: "Lumina Client", version: "v2.5.1", tag: "Beta", creator: "Lumina Labs", desc: "Next-gen shader support" },
   { title: "Stellar Shader", version: "v3.2", tag: "Release", creator: "ShadeX", desc: "Realistic water & clouds" },
   { title: "Faithful 64x", version: "v2.9", tag: "Release", creator: "FaithfulTeam", desc: "HD classic textures" }
@@ -673,7 +673,7 @@ function renderLatest() {
   const grid = document.getElementById('latest-grid');
   if (!grid) return;
   grid.innerHTML = latestData.map(item => `
-    <a href="//${item.title.toLowerCase().replace(/ /g, '-')}" class="card">
+    <a href="/clients/${item.title.toLowerCase().replace(/ /g, '-')}" class="card">
       <div class="tags">
         <span class="tag">${item.tag}</span>
         <span class="tag">${item.version}</span>
