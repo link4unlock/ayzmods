@@ -823,46 +823,28 @@ async function renderLatest() {
   grid.innerHTML = '<div style="text-align:center;padding:20px;">Loading...</div>';
   
   const categories = [
-    { name: 'clients', path: '/clients/index.html', icon: 'fa-gamepad' },
-    { name: 'mods', path: '/mods/index.html', icon: 'fa-cube' },
-    { name: 'shaders', path: '/shaders/index.html', icon: 'fa-sun' },
-    { name: 'texture-packs', path: '/texture-packs/index.html', icon: 'fa-image' },
-    { name: 'mcpe-apk', path: '/mcpe-apk/index.html', icon: 'fa-android' }
+    '/clients/index.html',
+    '/mods/index.html',
+    '/shaders/index.html',
+    '/texture-packs/index.html',
+    '/mcpe-apk/index.html'
   ];
   
   let allCards = [];
   
-  for (const cat of categories) {
+  for (const path of categories) {
     try {
-      const res = await fetch(cat.path);
+      const res = await fetch(path);
       const html = await res.text();
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, 'text/html');
       const cards = doc.querySelectorAll('.detailed-card');
-      
-      cards.forEach(card => {
-        const title = card.querySelector('.card-title')?.innerText || 'Unknown';
-        const version = card.querySelector('.version-tag')?.innerText || card.innerText.match(/[\d\.]+/)?.[0] || '';
-        const downloadLink = card.querySelector('.download-btn')?.getAttribute('href') || '#';
-        
-        allCards.push(`
-          <div class="detailed-card">
-            <span class="category-badge"><i class="fas ${cat.icon}"></i> ${cat.name.toUpperCase()}</span>
-            <span class="card-title">${title}</span>
-            ${version ? `<span class="version-tag">${version}</span>` : ''}
-            <div class="info-boxes">
-              <div class="info-box"><span class="info-label">SIZE</span><span class="info-val">~${Math.floor(Math.random() * 100) + 20} MB</span></div>
-              <div class="info-box"><span class="info-label">REQ</span><span class="info-val">Android 8+</span></div>
-            </div>
-            <a href="${downloadLink}" class="download-btn">Download</a>
-          </div>
-        `);
-      });
+      cards.forEach(card => allCards.push(card.outerHTML));
     } catch(e) {}
   }
   
   if (allCards.length === 0) {
-    grid.innerHTML = '<div style="text-align:center;padding:20px;">No items yet.</div>';
+    grid.innerHTML = '<div style="text-align:center;padding:20px;">No items yet. Add cards to your pages!</div>';
   } else {
     grid.innerHTML = allCards.slice(0, 6).join('');
   }
