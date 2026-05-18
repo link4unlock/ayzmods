@@ -751,12 +751,10 @@ main { padding: 20px; margin-bottom: 80px; }
 </style>
 
 <script>
-    /* Latest Update */
+    // Latest Updates - Auto Refresh har 10 sec mein
 async function renderLatest() {
   const grid = document.getElementById('latest-grid');
   if (!grid) return;
-  
-  grid.innerHTML = '<div style="text-align:center;padding:20px;">Loading...</div>';
   
   const categories = [
     '/clients/index.html',
@@ -770,7 +768,7 @@ async function renderLatest() {
   
   for (const path of categories) {
     try {
-      const res = await fetch(path);
+      const res = await fetch(path + '?t=' + Date.now());
       const html = await res.text();
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, 'text/html');
@@ -780,13 +778,16 @@ async function renderLatest() {
   }
   
   if (allCards.length === 0) {
-    grid.innerHTML = '<div style="text-align:center;padding:20px;">No items yet. Add cards to your pages!</div>';
+    grid.innerHTML = '<div style="text-align:center;padding:20px;">No items yet.</div>';
   } else {
     grid.innerHTML = allCards.slice(0, 6).join('');
   }
 }
 
+// Page load pe chalao
 renderLatest();
+// Har 10 sec mein refresh
+setInterval(renderLatest, 10000);
 
 // FAQ Accordion
 function initFaq() {
