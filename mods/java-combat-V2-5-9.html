@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Combat (MCPE 1.26+) | AyzMods</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #08060b;
+            --surface-color: #120e1a;
+            --card-bg: rgba(26, 21, 38, 0.4);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --primary-purple: #9d5cff;
+            --primary-blue: #3b82f6; /* Premium Blue Button Color */
+            --primary-blue-hover: #1d4ed8;
+            --text-main: #ffffff;
+            --text-muted: #7d7a8a;
+            --pill-green: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: var(--bg-color); color: var(--text-main); overflow-x: hidden; padding-bottom: 60px; }
+
+        /* Premium Nav Header */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: rgba(8, 6, 11, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.03); position: sticky; top: 0; z-index: 100; }
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+        .brand-text h1 { font-size: 18px; color: #fff; font-weight: 700; letter-spacing: 0.5px; } .brand-text h1 span { color: var(--primary-purple); }
+        .brand-text p { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: -2px; }
+        .menu-btn { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
+        
+        /* Drawer Sidebar Menu */
+        #sidebar { position: fixed; top: 0; right: -300px; width: 280px; height: 100vh; background: #0f0b18; border-left: 1px solid rgba(255,255,255,0.05); transition: right 0.4s cubic-bezier(0.1, 1, 0.1, 1); z-index: 1000; padding: 20px; }
+        #sidebar.active { right: 0; }
+        .sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .sidebar-header h2 { font-size: 18px; letter-spacing: 1px; color: #fff; }
+        .close-btn { background: #1a1526; border: none; color: #fff; width: 35px; height: 35px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .sidebar-menu { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+        .sidebar-menu li a { display: flex; align-items: center; gap: 15px; padding: 12px 15px; color: #b3b1bd; text-decoration: none; border-radius: 12px; font-weight: 500; font-size: 14px; transition: 0.2s; }
+        .sidebar-menu li a:hover, .sidebar-menu li.active a { background: rgba(157, 92, 255, 0.1); color: #fff; }
+        #overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); z-index: 999; display: none; backdrop-filter: blur(4px); }
+        #overlay.active { display: block; }
+
+        /* Main Viewport Grid Wrapper */
+        main { padding: 25px 15px; max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 25px; }
+
+        /* Main Post Card Showcase Block */
+        .showcase-card {
+            background: linear-gradient(180deg, rgba(32, 25, 48, 0.5) 0%, rgba(18, 14, 26, 0.5) 100%);
+            border: 1px solid var(--card-border); border-radius: 32px; padding: 30px 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5); position: relative; overflow: hidden;
+        }
+        .meta-top-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .item-icon { width: 52px; height: 52px; border-radius: 14px; object-fit: cover; background: #2a2238; }
+        .meta-label-box { display: flex; flex-direction: column; gap: 2px; }
+        .category-pill { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: var(--primary-purple); letter-spacing: 1px; text-transform: uppercase; }
+        .category-pill::before { content: ''; width: 6px; height: 6px; background: var(--primary-purple); border-radius: 50%; }
+        .sub-label { font-size: 12px; color: var(--text-muted); }
+        
+        .main-title { font-size: 28px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 12px; }
+        .status-badge { display: inline-block; background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; }
+        .description-para { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 25px; }
+
+        /* Hardware Specs Box Config */
+        .specs-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+        .spec-box { background: rgba(21, 16, 31, 0.6); border: 1px solid rgba(255,255,255,0.02); padding: 16px; border-radius: 16px; }
+        .spec-lbl { display: block; font-size: 10px; color: var(--text-muted); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+        .spec-val { font-size: 16px; font-weight: 700; color: #fff; }
+
+        /* Features Filter Chips row */
+        .features-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .feat-pill { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 6px 14px; border-radius: 12px; font-size: 12px; font-weight: 500; color: var(--pill-green); display: flex; align-items: center; gap: 6px; }
+
+        /* NEW SECTION: Full Detailed Content Section Layout Block */
+        .full-details-section {
+            background: var(--surface-color); padding: 25px; border-radius: 24px;
+            border: 1px solid var(--card-border); margin-top: 5px;
+        }
+        .full-details-section h3 { display: flex; align-items: center; gap: 10px; font-size: 18px; color: #fff; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .full-details-section h3 i { color: var(--primary-blue); }
+        .full-details-content { color: var(--text-muted); font-size: 14px; line-height: 1.8; }
+        .full-details-content p { margin-bottom: 12px; }
+        .full-details-content ul { list-style-position: inside; margin-left: 5px; margin-bottom: 12px; }
+        .full-details-content b { color: #fff; }
+
+        /* Download Action Primary Button (TURNED BLUE) */
+        .action-download-btn { display: flex; justify-content: center; align-items: center; gap: 10px; background: var(--primary-blue); color: #fff; padding: 16px; border-radius: 18px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all 0.2s ease; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25); margin-top: 20px; }
+        .action-download-btn:hover { background: var(--primary-blue-hover); transform: scale(1.01); box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4); }
+
+        /* Version History Segment */
+        .history-wrapper { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
+        .history-title-area { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+        .history-title-area h2 { font-size: 20px; font-weight: 700; color: #fff; }
+        .releases-count { background: rgba(255,255,255,0.03); color: var(--text-muted); font-size: 11px; padding: 4px 10px; border-radius: 20px; font-weight: 500; border: 1px solid rgba(255,255,255,0.05); }
+        
+        /* Filter Navigation Row */
+        .filter-nav { display: flex; gap: 10px; margin-bottom: 5px; overflow-x: auto; padding-bottom: 5px; }
+        .filter-nav::-webkit-scrollbar { display: none; }
+        .filter-tab { background: transparent; border: none; color: var(--text-muted); font-size: 12px; font-weight: 700; padding: 8px 16px; border-radius: 10px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; transition: 0.2s; }
+        .filter-tab.active { background: rgba(255,255,255,0.08); color: #fff; }
+
+        /* Version List Rows */
+        .version-list-group { display: flex; flex-direction: column; gap: 10px; }
+        .version-row-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; transition: border-color 0.2s; }
+        .version-row-item:hover { border-color: rgba(59, 130, 246, 0.3); }
+        .version-row-item.hidden { display: none; } /* Used by JS for filtering */
+        
+        .v-left-block { display: flex; align-items: center; gap: 14px; }
+        .v-icon-box { width: 42px; height: 42px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 15px; }
+        .v-meta-info { display: flex; flex-direction: column; gap: 1px; }
+        .v-name { font-size: 14px; font-weight: 600; color: #fff; }
+        .v-sub-data { font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+        .v-sub-data span.latest-tag { color: var(--primary-blue); font-weight: 600; }
+        
+        /* Cloud download button (TURNED BLUE ON HOVER) */
+        .v-cloud-download-btn { width: 40px; height: 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); text-decoration: none; transition: 0.2s; }
+        .v-cloud-download-btn:hover { background: var(--primary-blue); color: #fff; border-color: transparent; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="brand">
+            <img src="/assets/logo.png" alt="AyzMods Logo">
+            <div class="brand-text"><h1>Ayz<span>Mods</span></h1><p>MCPE MOD HUB</p></div>
+        </a>
+        <button id="menu-btn" class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+    </header>
+
+    <div id="overlay"></div>
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="brand-text"><h2>MENU</h2></div>
+            <button id="close-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="/statistics"><i class="fa-solid fa-chart-simple"></i> Statistics</a></li>
+            <li><a href="/faq"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+            <li><a href="/settings"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            <li><a href="/about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+            <li><a href="/privacy.html"><i class="fa-solid fa-shield"></i> Privacy</a></li>
+            <li><a href="/terms"><i class="fa-solid fa-file-contract"></i> Terms</a></li>
+            <li><a href="/dmca"><i class="fa-solid fa-gavel"></i> DMCA</a></li>
+            <li><a href="/contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            <li class="active"><a href="/mods"><i class="fa-solid fa-puzzle-piece"></i> Mods & Resources</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        
+        <div class="showcase-card">
+            <div class="meta-top-row">
+                <img src="/assets/java-combat.png" alt="java combat Icon" class="item-icon">
+                <div class="meta-label-box">
+                    <span class="category-pill">Java Combat V2.5.9</span>
+                    <span class="sub-label">Latest Stable Release</span>
+                </div>
+            </div>
+
+            <h1 class="main-title">Java Combat (MCPE 1.26+)</h1>
+            <span class="status-badge">Released</span>
+            <p class="description-para">Enjoy smooth Java-style PvP in Minecraft PE with swipe combat, classic hit animations, and enhanced knockback effects.</p>
+            
+            <div class="specs-container">
+                <div class="spec-box">
+                    <span class="spec-lbl">Size</span>
+                    <span class="spec-val">~144 KB</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-lbl">Requires</span>
+                    <span class="spec-val">Android/IOS</span>
+                </div>
+            </div>
+
+            <div class="features-row">
+                <div class="feat-pill"><i class="fa-solid fa-check"></i> Java Swipe</div>
+                <div class="feat-pill"><i class="fa-solid fa-check"></i> Java Combat</div>
+                <div class="feat-pill"><i class="fa-solid fa-check"></i> Java Sword/Exe Cooldown Animation</div>
+            </div>
+
+            <a href="https://filedollar.link/1RgzR9DR3bpB" target="_blank" class="action-download-btn">
+                <i class="fa-solid fa-download"></i> Download Now
+            </a>
+        </div>
+
+        <div class="full-details-section">
+    <h3><i class="fa-solid fa-file-lines"></i> Full Documentation & Description</h3>
+    <div class="full-details-content">
+        <p><b>Java Combat</b> is a smooth PvP enhancement mod specially designed for Minecraft Bedrock Edition (MCPE). It brings Java-style swipe combat, classic attack animations, and responsive PvP mechanics for a more competitive gameplay experience.</p>
+        
+        <p>This package improves overall combat feel while maintaining stable performance on most Android devices. Here are some key features included inside this build:</p>
+        
+        <ul>
+            <li><b>Java Swipe Combat:</b> Experience smooth Java Edition style sword swipe attacks.</li>
+            <li><b>Classic Hit Animations:</b> Improved attack visuals for immersive PvP gameplay.</li>
+            <li><b>Enhanced Knockback:</b> Better combat response and cleaner PvP movement.</li>
+            <li><b>Optimized Performance:</b> Lightweight combat system with stable FPS support.</li>
+        </ul>
+
+        <p>Make sure to install the correct version compatible with your Minecraft PE build for the best experience.</p>
+    </div>
+</div>
+
+<div class="history-wrapper">
+    <div class="history-title-area">
+        <h2>Version History</h2>
+        <span class="releases-count">4 releases</span>
+    </div>
+
+    <div class="filter-nav">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="stable">Stable</button>
+        <button class="filter-tab" data-filter="beta">Beta</button>
+        <button class="filter-tab" data-filter="legacy">Legacy</button>
+    </div>
+
+    <div class="version-list-group">
+
+        <div class="version-row-item" data-category="stable">
+            <div class="v-left-block">
+                <div class="v-icon-box"><i class="fa-solid fa-code-branch"></i></div>
+                <div class="v-meta-info">
+                    <div class="v-name">Java Combat V2.5.9</div>
+                    <div class="v-sub-data">
+                        <span class="latest-tag">Latest Stable</span> &bull; <span>MCPE 1.21+</span>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="v-cloud-download-btn">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+            </a>
+        </div>
+
+        <div class="version-row-item" data-category="stable">
+            <div class="v-left-block">
+                <div class="v-icon-box"><i class="fa-solid fa-code-branch"></i></div>
+                <div class="v-meta-info">
+                    <div class="v-name">Java Combat V2.5.5</div>
+                    <div class="v-sub-data">Stable Release &bull; MCPE 1.21+</div>
+                </div>
+            </div>
+            <a href="#" class="v-cloud-download-btn">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+            </a>
+        </div>
+
+        <div class="version-row-item" data-category="beta">
+            <div class="v-left-block">
+                <div class="v-icon-box"><i class="fa-solid fa-code-branch"></i></div>
+                <div class="v-meta-info">
+                    <div class="v-name">Java Combat V2.5 Beta</div>
+                    <div class="v-sub-data">Beta Testing Build &bull; MCPE 1.20+</div>
+                </div>
+            </div>
+            <a href="#" class="v-cloud-download-btn">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+            </a>
+        </div>
+
+        <div class="version-row-item" data-category="legacy">
+            <div class="v-left-block">
+                <div class="v-icon-box"><i class="fa-solid fa-code-branch"></i></div>
+                <div class="v-meta-info">
+                    <div class="v-name">Java Combat V2.4</div>
+                    <div class="v-sub-data">Legacy Build &bull; MCPE 1.19+</div>
+                </div>
+            </div>
+            <a href="#" class="v-cloud-download-btn">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+    </main>
+
+    <script>
+        // Sidebar Menu Trigger Logic
+        const menuBtn = document.getElementById("menu-btn");
+        const closeBtn = document.getElementById("close-btn");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        function toggleMenu() {
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
+        }
+
+        if(menuBtn) menuBtn.addEventListener("click", toggleMenu);
+        if(closeBtn) closeBtn.addEventListener("click", toggleMenu);
+        if(overlay) overlay.addEventListener("click", toggleMenu);
+
+        // WORKING FILTER TABS LOGIC
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const versionItems = document.querySelectorAll('.version-row-item');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove Active Class from current tab
+                document.querySelector('.filter-tab.active').classList.remove('active');
+                tab.classList.add('active');
+
+                const selectedFilter = tab.getAttribute('data-filter');
+
+                versionItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    
+                    if (selectedFilter === 'all' || itemCategory === selectedFilter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
