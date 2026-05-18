@@ -777,6 +777,9 @@ async function renderLatest() {
     } catch(e) {}
   }
   
+  // 🔥 ULTA KAR DO - Latest wala upar aayega
+  allCards.reverse();
+  
   if (allCards.length === 0) {
     grid.innerHTML = '<div style="text-align:center;padding:20px;">No items yet.</div>';
   } else {
@@ -784,9 +787,7 @@ async function renderLatest() {
   }
 }
 
-// Page load pe chalao
 renderLatest();
-// Har 10 sec mein refresh
 setInterval(renderLatest, 10000);
 
 // FAQ Accordion
